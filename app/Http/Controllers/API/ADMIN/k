@@ -1,0 +1,20 @@
+ public function store(Request $request)
+    {
+        //   return $request;
+        $validator = $request->validate([
+            "name" =>"required|string",
+            "email"=>"required|string",
+            "phone"=>"required|string",
+            "address"=>"required|string",
+            // "status"=>"nullable|integer"
+        ]);
+       $data = UserList::create($validator);
+        return response()->json([
+            "error"=>"false",
+            "message"=>"create success",
+            "data"=>$data
+        ]);
+    }
+/////////////////////////////////
+<!-- /
+// -->
